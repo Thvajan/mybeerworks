@@ -5,6 +5,8 @@ package me.springframework.mybeerworks.service.impl;
 
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
 import me.springframework.mybeerworks.service.BeerService;
 import me.springframework.mybeerworks.web.model.BeerDTO;
 
@@ -12,6 +14,7 @@ import me.springframework.mybeerworks.web.model.BeerDTO;
  * @author srive
  *
  */
+@Service
 public class BeerServiceImpl implements BeerService {
 
 	@Override
