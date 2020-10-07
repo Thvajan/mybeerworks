@@ -22,4 +22,9 @@ public class BeerServiceImpl implements BeerService {
 		return BeerDTO.builder().id(UUID.randomUUID()).beerName("Tuborg").beerStyle("Ginger Beer").build();
 	}
 
+	@Override
+	public BeerDTO saveNewBeer(BeerDTO beerDTO) {
+		return BeerDTO.builder().id(UUID.randomUUID()).build();
+	}
+
 }
