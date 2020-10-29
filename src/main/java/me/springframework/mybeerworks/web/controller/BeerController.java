@@ -5,6 +5,8 @@ package me.springframework.mybeerworks.web.controller;
 
 import java.util.UUID;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,8 @@ import me.springframework.mybeerworks.web.model.BeerDTO;
 @RequestMapping("/api/v1/beer")
 public class BeerController {
 
+	private final Logger logger = LogManager.getLogger(BeerController.class);
+
 	private final BeerService beerService;
 
 	public BeerController(BeerService beerService) {
@@ -39,6 +43,7 @@ public class BeerController {
 	 */
 	@GetMapping("/{beerId}")
 	public ResponseEntity<BeerDTO> getBeer(@PathVariable UUID beerId) {
+		logger.info("Beer for Id: " + beerId.toString() + " coming right up!");
 		return new ResponseEntity<BeerDTO>(beerService.getBeerById(beerId), HttpStatus.OK);
 	}
 
